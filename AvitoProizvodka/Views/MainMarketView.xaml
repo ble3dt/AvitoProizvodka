@@ -1,0 +1,120 @@
+﻿<UserControl x:Class="AvitoProizvodka.Views.MainMarketView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AvitoProizvodka.Views"
+             xmlns:models="clr-namespace:AvitoProizvodka.Data" xmlns:viewmodels="clr-namespace:AvitoProizvodka.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:MainMarketViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="900">
+
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type models:Product}">
+            <local:ProductListTemplate/>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" 
+                  VerticalScrollBarVisibility="Visible" 
+                  VirtualizingPanel.ScrollUnit="Pixel">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Border Background="{StaticResource TotallyBlack}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <StackPanel Orientation="Horizontal" Height="50" Margin="20 0">
+                    <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SearchTextBox}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    <Button Command="{Binding SearchProductCommand}" Style="{StaticResource ForwardButton}" Margin="10 0"/>
+                </StackPanel>
+            </Border>
+
+            <ItemsControl Grid.Row="1" ItemsSource="{Binding FirstBanch}" Margin="50 0" Height="300">
+
+                <ItemsControl.Style>
+                    <Style TargetType="ItemsControl">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding FirstBanch.Count}" Value="0">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ItemsControl.Style>
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Horizontal" VerticalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.Template>
+                    <ControlTemplate>
+                        <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </ItemsControl.Template>
+
+            </ItemsControl>
+
+            <ItemsControl Grid.Row="2" ItemsSource="{Binding SecondBanch}" Margin="50 0" Height="300">
+
+                <ItemsControl.Style>
+                    <Style TargetType="ItemsControl">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SecondBanch.Count}" Value="0">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ItemsControl.Style>
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Horizontal" VerticalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.Template>
+                    <ControlTemplate>
+                        <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </ItemsControl.Template>
+
+            </ItemsControl>
+
+            <ItemsControl Grid.Row="3" ItemsSource="{Binding ThirdBanch}" Margin="50 0" Height="300">
+
+                <ItemsControl.Style>
+                    <Style TargetType="ItemsControl">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ThirdBanch.Count}" Value="0">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ItemsControl.Style>
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Horizontal" VerticalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.Template>
+                    <ControlTemplate>
+                        <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </ItemsControl.Template>
+
+            </ItemsControl>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

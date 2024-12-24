@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f46ff47dba6b4f17bfd1c5c013a6691a" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="MarketplaceModel.Cart" Width="1.5" PointX="3" PointY="3.75" />
+        <EntityTypeShape EntityType="MarketplaceModel.Contact" Width="1.5" PointX="3" PointY="15.75" />
+        <EntityTypeShape EntityType="MarketplaceModel.Image" Width="1.5" PointX="0.75" PointY="10.875" />
+        <EntityTypeShape EntityType="MarketplaceModel.Product" Width="1.5" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="MarketplaceModel.ProductImage" Width="1.5" PointX="6" PointY="6.625" />
+        <EntityTypeShape EntityType="MarketplaceModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="1.75" />
+        <EntityTypeShape EntityType="MarketplaceModel.Tag" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="MarketplaceModel.User" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="MarketplaceModel.UserImage" Width="1.5" PointX="3" PointY="6.875" />
+        <EntityTypeShape EntityType="MarketplaceModel.UserProduct" Width="1.5" PointX="3" PointY="9.5" />
+        <AssociationConnector Association="MarketplaceModel.FK_Cart_Product" />
+        <AssociationConnector Association="MarketplaceModel.FK_Cart_User" />
+        <AssociationConnector Association="MarketplaceModel.FK_Contact_User" />
+        <AssociationConnector Association="MarketplaceModel.FK_Contact_User1" />
+        <AssociationConnector Association="MarketplaceModel.FK_ProductImage_Image" />
+        <AssociationConnector Association="MarketplaceModel.FK_UserImage_Image" />
+        <AssociationConnector Association="MarketplaceModel.FK_ProductImage_Product" />
+        <AssociationConnector Association="MarketplaceModel.FK_UserProduct_Product" />
+        <AssociationConnector Association="MarketplaceModel.FK_UserImage_User" />
+        <AssociationConnector Association="MarketplaceModel.FK_UserProduct_User" />
+        <AssociationConnector Association="MarketplaceModel.ProductTag" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
